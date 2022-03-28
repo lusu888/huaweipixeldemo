@@ -1,0 +1,16 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      var urlVars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        urlVars[key.toLowerCase()] = value;
+      });
+      var s = '<scr' + 'ipt> (function(){window.recordTier = window.recordTier || [], window.recordTier.push({eventName: \'dtm.js\'});var e = document.getElementsByTagName(\'scr' + 'ipt\')[0], r = document.createElement(\'scr' + 'ipt\');r.async = !0, r.src = \'https://dtm-dre.platform.hicloud.com/download/web/dtm.js?id=DTM-ac1262027c6e10a2817cc06442e74a12\', e.parentNode.insertBefore(r, e);})(); </scr' + 'ipt> <scr' + 'ipt defer="defer"> recordTier.push({eventName: "effectiveLeadsForm", tracking_id: "35035793"}); </scr' + 'ipt>';
+      s = s.replace('[%uid%]', urlVars['callcpl']);
+      document.write(s);
+
+    </script>
+  <body>
+</html>
