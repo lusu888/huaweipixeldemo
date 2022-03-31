@@ -13,8 +13,21 @@
 
           return parentUrl;
       }
+
+      function getQueryString(fatherUrl, name) {
+          let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+          let r = fatherUrl.search.substr(1).match(reg);
+          if (r != null) {
+              return decodeURIComponent(r[2]);
+          };
+          return null;
+      }
       var parentURL = getParentUrl()
       console.log(parentURL)
+      val trackingUrl= getQueryString(parentUrl,"tracking_url")
+      console.log("tracking url is : "+trackingUrl)
+      
+
       var urlVars = {};
       var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         urlVars[key.toLowerCase()] = value;
