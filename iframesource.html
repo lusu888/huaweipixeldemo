@@ -3,6 +3,18 @@
   </head>
   <body>
     <script>
+      function getParentUrl() {
+          var isInIframe = (parent !== window),
+              parentUrl = null;
+
+          if (isInIframe) {
+              parentUrl = document.referrer;
+          }
+
+          return parentUrl;
+      }
+      var parentURL = getParentUrl()
+      console.log(parentURL)
       var urlVars = {};
       var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         urlVars[key.toLowerCase()] = value;
