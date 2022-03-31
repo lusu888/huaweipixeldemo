@@ -15,12 +15,9 @@
       }
 
       function getQueryString(fatherUrl, name) {
-          let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-          let r = fatherUrl.search.substr(1).match(reg);
-          if (r != null) {
-              return decodeURIComponent(r[2]);
-          };
-          return null;
+          var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+          var r = fatherUrl.match(reg);
+          if (r != null) return unescape(r[2]); return null;
       }
       var parentURL = getParentUrl()
       console.log(parentURL)
