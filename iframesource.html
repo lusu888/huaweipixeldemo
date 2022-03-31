@@ -17,9 +17,13 @@
       function getQueryString(fatherUrl, name) {
           console.log("fatherUrl： " + fatherUrl);
           console.log("name: " + name);
-          var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-          var r = fatherUrl.match(reg);
-          if (r != null) return unescape(r[2]); return null;
+         
+           var vars = fatherUrl.split("&");
+           for (var i=0;i<vars.length;i++) {
+                   var pair = vars[i].split("=");
+                   if(pair[0] == name){return pair[1];}
+           }
+           return(false);
       }
       var parentURL = getParentUrl()
       console.log(parentURL)
