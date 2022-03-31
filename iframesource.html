@@ -18,7 +18,7 @@
           console.log("fatherUrl： " + fatherUrl);
           console.log("name: " + name);
           var varsall = fatherUrl.split("?")
-          if（varsall[1].length==0）{return(false)}
+          if（varsall.length=1）{return(false)}
 
            var vars = varsall[1].split("&");
            for (var i=0;i<vars.length;i++) {
